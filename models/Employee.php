@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "employee".
  *
@@ -49,14 +47,14 @@ class Employee extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'surname' => 'Surname',
-            'patronymic' => 'Patronymic',
-            'age' => 'Age',
-            'gender' => 'Gender',
-            'graduate_id' => 'Graduate ID',
-            'post_id' => 'Post ID',
+            'id' => 'Идентификатор',
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'patronymic' => 'Отчество',
+            'age' => 'Возраст',
+            'gender' => 'Пол',
+            'graduate_id' => 'Научная степень',
+            'post_id' => 'Должность',
         ];
     }
 
@@ -78,5 +76,25 @@ class Employee extends \yii\db\ActiveRecord
     public function getPost()
     {
         return $this->hasOne(Post::class, ['id' => 'post_id']);
+    }
+
+    public function getGender()
+    {
+        switch ($this->gender) {
+            case 1:
+                return 'Мужской';
+            case 0:
+                return 'Женский';
+        }
+    }
+
+    public function getGraduateName()
+    {
+        return $this->graduate->name;
+    }
+
+    public function getPostName()
+    {
+        return $this->post->name;
     }
 }

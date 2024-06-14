@@ -43,7 +43,7 @@ class Post extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => 'Идентификатор',
             'name' => 'Наименование',
             'salary' => 'Заработная плата',
             'description' => 'Описание',
@@ -58,5 +58,10 @@ class Post extends \yii\db\ActiveRecord
     public function getEmployees()
     {
         return $this->hasMany(Employee::class, ['post_id' => 'id']);
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 }

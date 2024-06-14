@@ -2,17 +2,17 @@
 
 namespace app\controllers;
 
-use app\models\Graduate;
-use app\models\GraduateSearch;
+use app\models\Employee;
+use app\models\EmployeeSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * GraduateController implements the CRUD actions for Graduate model.
+ * EmployeeController implements the CRUD actions for Employee model.
  */
-class GraduateController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * @inheritDoc
@@ -49,13 +49,13 @@ class GraduateController extends Controller
     }
 
     /**
-     * Lists all Graduate models.
+     * Lists all Employee models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new GraduateSearch();
+        $searchModel = new EmployeeSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -65,7 +65,7 @@ class GraduateController extends Controller
     }
 
     /**
-     * Displays a single Graduate model.
+     * Displays a single Employee model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -78,13 +78,13 @@ class GraduateController extends Controller
     }
 
     /**
-     * Creates a new Graduate model.
+     * Creates a new Employee model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Graduate();
+        $model = new Employee();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -100,7 +100,7 @@ class GraduateController extends Controller
     }
 
     /**
-     * Updates an existing Graduate model.
+     * Updates an existing Employee model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -120,7 +120,7 @@ class GraduateController extends Controller
     }
 
     /**
-     * Deletes an existing Graduate model.
+     * Deletes an existing Employee model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -134,15 +134,15 @@ class GraduateController extends Controller
     }
 
     /**
-     * Finds the Graduate model based on its primary key value.
+     * Finds the Employee model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Graduate the loaded model
+     * @return Employee the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Graduate::findOne(['id' => $id])) !== null) {
+        if (($model = Employee::findOne(['id' => $id])) !== null) {
             return $model;
         }
 

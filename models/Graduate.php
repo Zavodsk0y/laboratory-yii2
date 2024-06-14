@@ -53,4 +53,9 @@ class Graduate extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Employee::class, ['graduate_id' => 'id']);
     }
+
+    public function getName()
+    {
+        return $this->name;
+    }
 }
